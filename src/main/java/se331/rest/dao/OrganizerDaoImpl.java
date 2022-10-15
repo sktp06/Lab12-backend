@@ -26,5 +26,10 @@ public class OrganizerDaoImpl implements OrganizerDao {
 
     }
 
+    @Override
+    public Organizer save(Organizer organizer) {
+        return organizerRepository.save(organizer);
+    }
+
 }
 

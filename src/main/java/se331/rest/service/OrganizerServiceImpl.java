@@ -6,8 +6,10 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import se331.rest.dao.OrganizerDao;
+import se331.rest.entity.Event;
 import se331.rest.entity.Organizer;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -23,5 +25,11 @@ public class OrganizerServiceImpl implements OrganizerService{
     public Page<Organizer> getOrganizer(Integer page, Integer pageSize) {
               return organizerDao.getOrganizer(PageRequest.of(page,pageSize));
           }
+
+    @Override
+    @Transactional
+    public Organizer save(Organizer organizer) {
+        return organizerDao.save(organizer);
+    }
 }
 
