@@ -16,20 +16,24 @@ import java.util.List;
 public class OrganizerServiceImpl implements OrganizerService{
     @Autowired
     OrganizerDao organizerDao;
-    @Override
-    public List<Organizer> getAllOrganizer() {
-               return organizerDao.getOrganizer(Pageable.unpaged()).getContent();
-           }
-
+//    @Override
+//    public List<Organizer> getAllOrganizer() {
+//               return organizerDao.getOrganizer(Pageable.unpaged()).getContent();
+//           }
            @Override
-    public Page<Organizer> getOrganizer(Integer page, Integer pageSize) {
-              return organizerDao.getOrganizer(PageRequest.of(page,pageSize));
+    public Page<Organizer> getOrganizer(Integer pageSize, Integer page) {
+              return organizerDao.getOrganizer(pageSize, page);
           }
 
     @Override
     @Transactional
     public Organizer save(Organizer organizer) {
         return organizerDao.save(organizer);
+    }
+
+    @Override
+    public Organizer getOrganizer(Long id) {
+        return organizerDao.getOrganizer(id);
     }
 }
 

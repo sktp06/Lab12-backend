@@ -8,10 +8,11 @@ import se331.rest.entity.Organizer;
 import java.util.Optional;
 
 public interface OrganizerDao {
-    Page<Organizer> getOrganizer(Pageable pageRequest);
+    Page<Organizer> getOrganizer(Integer pageSize, Integer page);
     Optional<Organizer> findById(Long id);
     Organizer save(Organizer organizer);
 
 
+    Organizer getOrganizer(Long id);
 }
 
